@@ -169,6 +169,7 @@ if uploaded_file:
         volume_colors = ['green' if row['close'] >= row['open'] else 'red' for _, row in dfpl.iterrows()]
         ax2.bar(dfpl.index, dfpl['volume'], color=volume_colors, width=0.7)
         ax2.set_ylabel("Volume")
+        ax2.grid(True)
         ax2.yaxis.set_ticks_position('right')
         ax2.yaxis.set_label_position('right')
 
