@@ -11,24 +11,6 @@ from datetime import datetime
 # Sidebar configuration
 st.sidebar.title("📁 Upload & Settings")
 
-# Theme selector
-theme = st.sidebar.selectbox("Choose Theme", ["Light", "Dark"])
-
-# Apply dark theme CSS
-if theme == "Dark":
-    st.markdown("""
-        <style>
-            .main {
-                background-color: #0e1117;
-                color: white;
-            }
-            .css-18e3th9, .css-1d391kg, .css-hxt7ib, .css-10trblm {
-                background-color: #0e1117 !important;
-                color: white !important;
-            }
-        </style>
-    """, unsafe_allow_html=True)
-
 # Pivot window selector
 window = st.sidebar.selectbox("Pivot Detection Window", [2, 3, 5, 8, 10], index=4)
 
@@ -168,6 +150,7 @@ if uploaded_file:
             ax1.scatter(subset.index, y_vals, color=color, label=label, zorder=5)
 
         ax1.set_ylabel("Price")
+        ax1.grid(True, which='major', axis='both')
         ax1.legend()
         ax1.yaxis.set_ticks_position('right')
         ax1.yaxis.set_label_position('right')
